@@ -30,7 +30,7 @@ for (i = 9; i < 18; i++) {
 
 // Save notes to local storage
 $(".button").on('click', function() {
-    var key = $(this).attr('displayHour')
+    var key = displayHour;
     var value = $(this).siblings('textarea').val(); 
     localStorage.setItem(key, JSON.stringify(value));
 
