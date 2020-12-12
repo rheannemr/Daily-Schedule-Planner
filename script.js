@@ -1,5 +1,3 @@
-// Worked with classmate, Ines Radic
-
 // Display current day and time
 function displayDate() {
     var currentDate = moment().format("dddd, MMMM Do YYYY");
