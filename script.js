@@ -1,20 +1,16 @@
-// Create rows
-// Create buttons
-// Add event listeners
-// Get reference to existing HTML element
-// Get current time
-// Display current date
-// Store schedule notes in local storage
-// Get schedule notes from local storage
+// Worked with classmate, Ines Radic
 
+// Display current day and time
 function displayDate() {
     var currentDate = moment().format("dddd, MMMM Do YYYY");
     $("#currentDay").text(currentDate);
 }
 displayDate();
 
+// Array of hours displayed on schedule
 var displayHour = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 
+// Display columns/rows with text area and save button
 for (i = 9; i < 18; i++) {
     $(".container").append(`
     <div id = "hour-${i}" class = "row time-block">
@@ -24,6 +20,7 @@ for (i = 9; i < 18; i++) {
     </div>
     `)
 
+// Rows are color coordinated and separated by present, past, and future hours
     if (moment().format("H") == i) {
         $(`#hour-${i}`).addClass("present");
     } else if (moment().format("H") > i) {
@@ -33,15 +30,10 @@ for (i = 9; i < 18; i++) {
     }
 }
 
+// Save notes to local storage
 $(".button").on('click', function() {
-    var key = $(this).attr("hour-${i}")
+    var key = $(this).attr('displayHour')
     var value = $(this).siblings('textarea').val(); 
     localStorage.setItem(key, JSON.stringify(value));
 
 });
-
-
-// Add onclick on save button to save to local storage
-// Write a single onclick for saveBtn
-// Inside onlick, set local storage
-// Get local storage
